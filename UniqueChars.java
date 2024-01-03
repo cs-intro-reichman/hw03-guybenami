@@ -11,7 +11,17 @@ public class UniqueChars {
      * unless they are space characters.
      */
     public static String uniqueChars(String s) {
-        // Replace the following statement with your code
-        return null;
+        String newStr = "";
+        boolean chIsInside = false;
+        for(int i=0; i<s.length() ; i++) {
+            for(int j=0 ; j<newStr.length() ; j++){
+                if(s.charAt(i)==newStr.charAt(j))
+                    chIsInside = true;
+            }
+            if(!chIsInside)
+                newStr += s.charAt(i);
+            chIsInside = false;
+        }
+        return newStr;
     }
 }
