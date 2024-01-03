@@ -15,7 +15,7 @@ public class uniquechars {
         boolean chIsInside = false;
         for(int i=0; i<s.length() ; i++) {
             for(int j=0 ; j<newStr.length() ; j++){
-                if(s.charAt(i)==newStr.charAt(j))
+                if(s.charAt(i)==newStr.charAt(j) && s.charAt(i)!=' ')
                     chIsInside = true;
             }
             if(!chIsInside)
