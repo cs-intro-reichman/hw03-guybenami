@@ -40,8 +40,8 @@ public class LoanCalc {
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {  
     	iterationCounter = 0;
-    	double payment = loan/n;
-    	while(endBalance(loan, rate, n, payment)>0){
+    	double payment = loan / n;
+    	while(endBalance(loan, rate, n, payment) > 0){
     		payment += epsilon;
     		iterationCounter++;
     	}
@@ -55,17 +55,13 @@ public class LoanCalc {
 	* the number of periods (n), and epsilon, a tolerance level.
 	*/
 	// Side effect: modifies the class variable iterationCounter.
-
-
-	/* IMPORTANT: my choice for the variable high's definition produces less iterations than the autograding expects,
-	 and there for the autograding counts my output as wrong */
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
     	iterationCounter = 0;
     	double low = loan / n;
     	double high = loan;
     	double payment = (high + low) / 2;
     	while(high - low > epsilon) {
-    		if(endBalance(loan, rate, n, payment)>0){
+    		if(endBalance(loan, rate, n, payment) > 0){
     			low = payment;
     			payment = (high + low) / 2;
     		}
@@ -84,8 +80,8 @@ public class LoanCalc {
 	*/
 	private static double endBalance(double loan, double rate, int n, double payment) {
 		double newBalance = loan;
-		for(int i=0 ; i<n ; i++){
-			newBalance = (newBalance-payment) * (1 + rate/100);
+		for(int i = 0 ; i < n ; i++){
+			newBalance = (newBalance - payment) * (1 + rate / 100);
 		}
     	return newBalance;
 	}
